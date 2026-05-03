@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken')
 
 const protect = async (req, res, next) => {
-
-    const token = req.header.authorization;
+    console.log(req.headers)
+    const token = req.headers.authorization;
     if (!token) {
         return res.status(400).send("No token found");
     }
@@ -16,4 +16,4 @@ const protect = async (req, res, next) => {
     }
 }
 
-module.exports = protectl
+module.exports = protect
