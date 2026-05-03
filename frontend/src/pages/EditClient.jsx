@@ -14,14 +14,14 @@ export default function EditClient() {
     const { id } = useParams()
     const navigate = useNavigate()
     const token = localStorage.getItem('token')
-    
+
 
     const getClient = async () => {
-        const response = await fetch(`http://localhost:4000/api/clients/${id}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/clients/${id}`, {
             method: "GET",
             headers: { "Authorization": token },
         })
-         const data = await response.json()
+        const data = await response.json()
         setName(data.name);
         setEmail(data.email)
         setPhone(data.phone)
@@ -35,7 +35,7 @@ export default function EditClient() {
     }, [])
 
     const saveClient = async () => {
-        await fetch(`http://localhost:4000/api/clients/${id}`, {
+        await fetch(`${import.meta.env.VITE_API_URL}/api/clients/${id}`, {
             method: "PUT",
             headers: { "Authorization": token, "Content-type": "application/json" },
             body: JSON.stringify({ name, email, phone, company, status, notes })

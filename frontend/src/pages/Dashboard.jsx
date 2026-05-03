@@ -11,7 +11,7 @@ export default function Dashboard() {
 
     const getClients = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/clients', {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/clients`, {
                 method: "GET",
                 headers: { 'Authorization': token }
             })
@@ -27,7 +27,7 @@ export default function Dashboard() {
     }, [])
 
     async function deleteClient(id){
-        await fetch(`http://localhost:4000/api/clients/${id}`,
+        await fetch(`${import.meta.env.VITE_API_URL}api/clients/${id}`,
             {
                 method:"DELETE",
                 headers:{"Authorization": token}

@@ -15,7 +15,7 @@ export default function AddClient() {
     const navigate = useNavigate()
 
     const saveClient = async () => {
-        await fetch('http://localhost:4000/api/clients',{
+        await fetch(`${import.meta.env.VITE_API_URL}/api/clients`,{
             method:"POST",
             headers:{"Authorization": token,"Content-type":"application/json"},
             body:JSON.stringify({name,email,phone,company,status,notes})
