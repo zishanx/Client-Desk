@@ -27,7 +27,7 @@ export default function Dashboard() {
     }, [])
 
     async function deleteClient(id){
-        await fetch(`${import.meta.env.VITE_API_URL}api/clients/${id}`,
+        await fetch(`${import.meta.env.VITE_API_URL}/api/clients/${id}`,
             {
                 method:"DELETE",
                 headers:{"Authorization": token}
